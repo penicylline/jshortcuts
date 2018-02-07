@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h2 {
+        font-size: 15px;
+      }
+      a {
+          text-decoration: none;
+      }
+      a:hover {
+          text-decoration: underline;
+      }
+      nav a {
+          font-weight: bold;
+          font-size: 13px;
+      }
+      nav {
+          padding-bottom: 5px;
+          border-bottom: 1px solid #aaaaaa;
+      }
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+      .contents {
+          min-width: 200px;
+      }
+      .contents input[type="text"], .contents textarea {
+          width: 500px;
+          margin-bottom: 10px;
+          font-size: 12px;
+      }
+      .contents input[type="text"] {
+          padding: 3px;
+      }
+      textarea {
+          height: 300px;
+      }
+      #listButtons {
+          min-width: 200px;
+      }
+      #listButtons a {
+          display: inline-block;
+          margin-bottom: 2px;
+          padding: 3px;
+          font-size: 1.3em;
+      }
+      #listButtons a.execute {
+          width: 200px;
+          background-color: #dddddd;
+          color: #333333;
+          font-weight: bold;
+          margin-right: 2px;
+      }
+      #listButtons a.edit {
+          background-color: #dddddd;
+          color: #ff3333;
+      }
+      button {
+          padding: 5px 20px;
+          font-weight: bold;
+      }
+    </style>
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+  </head>
+
+  <body>
+    <nav>
+        <a href="#home" class="tab-indicator">Home</a> | <a href="#edit" class="tab-indicator">Add</a> | <a href="#about" class="tab-indicator">About</a>
+    </nav>
+    <div class="tab" id="tab-home">
+      <h2>Your scripts</h2>
+      <div class="contents">
+          <div id="listButtons"></div>
+      </div>
+    </div>
+
+    <div class="tab" id="tab-edit" style="display:none;">
+      <h2>Add/Edit script</h2>
+      <div class="contents">
+          <input type="text" id="txtName" placeholder="Script label" maxlength="50"/>
+          <br/>
+          <textarea id="txtContents" placeholder="Your javascript contents(E.g. document.body.style.backgroundColor = '#000';) "></textarea>
+          <br/>
+          <button id="btnCancel">Cancel</button> <button id="btnSave">Save</button> <button id="btnDelete">Delete</button>
+      </div>
+    </div>
+
+    <div class="tab" id="tab-about" style="display:none;">
+      <h2>About JShortcuts</h2>
+      <div class="contents">
+          <p>
+              Any feedback please send email to <a href="mailto:penicylline@gmail.com">penicylline@gmail.com</a>
+          </p>
+          <a class="goHome" href="#"><< Home</a>
+      </div>
+    </div>
+  </body>
+</html>
