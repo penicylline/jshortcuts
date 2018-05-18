@@ -77,7 +77,12 @@ function initializeTabs() {
     for (var i = 0; i < labels.length; i++) {
         labels[i].addEventListener('click', (e) => {
             e.preventDefault();
-            openTab(e.target.href.split('#')[1]);
+            var tab = e.target.href.split('#')[1];
+            if (tab == 'edit') {
+                document.getElementById('txtName').value = '';
+                document.getElementById('txtContents').value = '';
+            }
+            openTab(tab);
         });
     }
 }
@@ -103,7 +108,7 @@ function initializeButtons() {
         openTab('home');
     });
 
-    //js butotns
+    //js buttons
     document.getElementById('listButtons').addEventListener('click', (e) => {
         e.preventDefault();
         if (e.target.className == 'execute') {
@@ -114,7 +119,9 @@ function initializeButtons() {
                 });
             });
         } else if (e.target.className == 'edit') {
-            editLabel(e.target.href.split('#')[1]);
+            var label = e.target.href.split('#')[1];
+            label = decodeURIComponent(label);
+            editLabel(label);
         }
     });
 }
